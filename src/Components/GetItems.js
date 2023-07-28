@@ -3,28 +3,30 @@ import React, { useRef, useState } from "react";
 import ShowItems from "./ShowItems";
 
 const GetItems = (props) => {
-  const nameInput = useRef();
+  const dishInput = useRef();
   const idInput = useRef();
   const priceInput = useRef();
+  const optionSel = useRef();
 
   const [item, setItem] = useState({});
 
   const formSubmit = (event) => {
     event.preventDefault();
     if (
-      nameInput.current.value !== "" &&
+      dishInput.current.value !== "" &&
       idInput.current.value !== "" &&
       priceInput.current.value !== ""
     ) {
       const subObject = {
-        name: nameInput.current.value,
+        name: dishInput.current.value,
         id: idInput.current.value,
         price: priceInput.current.value,
+        table: optionSel.current.value,
       };
       setItem((prevState) => {
         return { ...prevState, subObject };
       });
-      nameInput.current.value = "";
+      dishInput.current.value = "";
       idInput.current.value = "";
       priceInput.current.value = "";
     } else {
@@ -35,12 +37,18 @@ const GetItems = (props) => {
   return (
     <div>
       <form className={styles.form} onSubmit={formSubmit}>
-        <label>Product ID</label>
+        <label>Unique Order ID</label>
         <input type="number" ref={idInput} />
-        <label>Selling Price</label>
+        <label>Choose Price</label>
         <input type="number" ref={priceInput} />
-        <label>Product Name</label>
-        <input type="text" ref={nameInput} />
+        <label>Choose Dish</label>
+        <input type="text" ref={dishInput} />
+        <label>Choose Table</label>
+        <select ref={optionSel}>
+          <option value="Table-1">Table-1</option>
+          <option value="Table-2">Table-2</option>
+          <option value="Table-3">Table-3</option>
+        </select>
 
         <button type="submit">Add Product</button>
       </form>
