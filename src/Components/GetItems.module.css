@@ -1,0 +1,32 @@
+.form {
+  background-color: aquamarine;
+  width: 80%;
+  margin: auto;
+  padding: 5% 0;
+  border-radius: 2%;
+  align-items: center;
+}
+
+.form input {
+  padding: 8px;
+  display: block;
+  width: 80%;
+  margin: 1% 10% 2%;
+  border-radius: 5px;
+}
+
+.form label {
+  padding: 8px;
+  margin: 1%;
+  margin: 0 10%;
+  margin-top: 20px;
+}
+
+.form button {
+  width: 20%;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  background-color: black;
+  margin-left: 40%;
+}
